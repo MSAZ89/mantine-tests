@@ -24,3 +24,44 @@ a {
     background: black;
   }
 }
+
+a {
+  color: #228be6;
+}
+
+.nav-buttons {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.color-light {
+  color: white;
+}
+
+.color-dark {
+  color: #333;
+}
+
+.bg-light {
+  background: white;
+}
+
+.bg-dark {
+  background: #333;
+}
+
+.nothing:hover {
+  color: #333;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-half {
+  width: 50%;
+}
+
+.w-third {
+  width: 33%;
+}

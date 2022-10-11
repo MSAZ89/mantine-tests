@@ -14,7 +14,37 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        Mantine
+        <Tabs color="red" radius="xs" orientation="horizontal">
+
+        <Tabs.List>
+          <Tabs.Tab color="yellow" value="gallery">Home</Tabs.Tab>
+          <Tabs.Tab color="blue" value="accordion">Accordion</Tabs.Tab>
+          <Tabs.Tab value="badges">Badges</Tabs.Tab>
+          <Tabs.Tab value="card">Card</Tabs.Tab>
+          <Tabs.Tab value="indicator">Indicator</Tabs.Tab>
+        </Tabs.List>
+
+        <Tabs.Panel value="gallery" pl="xs">
+          Home - This is a compiliation of test mantine components
+        </Tabs.Panel>
+
+        <Tabs.Panel value="accordion" pl="xs">
+          <MyAccordion />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="badges" pl="xs">
+          <MyBadges />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="card">
+          <Cardgrid />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="indicator" pl="xs">
+          <MyIndicator />
+        </Tabs.Panel>
+
+        </Tabs>
       </main>
 
     </div>

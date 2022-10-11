@@ -1,10 +1,31 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { useState, useRef, useEffect } from 'react';
 import { ColorInput } from '@mantine/core';
+import { Slider, RangeSlider } from '@mantine/core';
+
 
 
 export default function Home() {
+
+  const [backgroundValue, setBackgroundValue] = useState('#333');
+  const [textColorValue, setTextColorValue] = useState('lime');
+
+  const [paddingValue, setPaddingValue] = useState(50);
+  const [borderRadiusValue, setBorderRadiusValue] = useState(50);
+  const [borderThicknessValue, setBorderThicknessValue] = useState(10);
+
+  const [htmlData, setHtmlData] = useState("");
+
+  const htmlDiv = useRef();
+
+  useEffect(() => {
+    //on component load
+    console.log(htmlDiv);
+    setHtmlData(htmlDiv);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,22 +35,58 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+      
+      <p ref={htmlDiv} style={{background: backgroundValue, color: textColorValue, padding: paddingValue, borderRadius: borderRadiusValue, border: borderThicknessValue + "px solid " + textColorValue, fontWeight: 600, letterSpacing: "2px"}}>Some Cool Element</p>
 
-      <ColorInput placeholder="Pick color" label="Your favorite color" />
+      <ColorInput value={backgroundValue} onChange={setBackgroundValue} placeholder="Pick color" label="Background" />
+      <ColorInput className='mb-20' value={textColorValue} onChange={setTextColorValue} placeholder="Pick color" label="Text Color" />
+
+      <label>Padding</label>
+      <Slider 
+      className='mb-20'
+      style={{width: "25%"}}
+      value={paddingValue} 
+      onChange={setPaddingValue} 
+      marks={[
+        { value: 0, label: '0 px' },
+        { value: 50, label: '50 px' },
+        { value: 100, label: '100 px' },
+      ]}
+      />
+
+      <label>Radius</label>
+      <Slider 
+      className='mb-20'
+      style={{width: "25%"}}
+      value={borderRadiusValue} 
+      onChange={setBorderRadiusValue} 
+      marks={[
+        { value: 20, label: '20 px' },
+        { value: 50, label: '50 px' },
+        { value: 80, label: '80 px' },
+      ]}
+      />
+
+      <label>Border Thickness</label>
+      <Slider 
+      className='mb-20'
+      min={0}
+      max={20}
+      style={{width: "25%"}}
+      value={borderThicknessValue} 
+      onChange={setBorderThicknessValue} 
+      marks={[
+        { value: 0, label: '0 px' },
+        { value: 10, label: '10 px' },
+        { value: 20, label: '20 px' },
+      ]}
+      />
+
+      <div>
+        {htmlData && htmlData.current.outerHTML.toString()}
+      </div>
+
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }

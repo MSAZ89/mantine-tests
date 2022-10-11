@@ -30,7 +30,6 @@ a {
 }
 
 .nav-buttons {
-  padding-left: 20px;
   padding-top: 20px;
 }
 
@@ -64,4 +63,24 @@ a {
 
 .w-third {
   width: 33%;
+}
+
+.ml-4 {
+  margin-left: 4px;
+}
+
+.ml-8 {
+  margin-left: 8px;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.ml-40 {
+  margin-left: 40px;
 }

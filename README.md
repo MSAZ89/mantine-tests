@@ -21,3 +21,5 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Note: This project is just for testing. It doesn't have proper HTML structure. Maybe I'll refactor one day.

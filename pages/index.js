@@ -21,8 +21,6 @@ export default function Home() {
   const htmlDiv = useRef();
 
   useEffect(() => {
-    //on component load
-    console.log(htmlDiv);
     setHtmlData(htmlDiv);
   }, []);
 
@@ -35,57 +33,66 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      
-      <p ref={htmlDiv} style={{background: backgroundValue, color: textColorValue, padding: paddingValue, borderRadius: borderRadiusValue, border: borderThicknessValue + "px solid " + textColorValue, fontWeight: 600, letterSpacing: "2px"}}>Some Cool Element</p>
+        <div 
+        ref={htmlDiv}
+        className="mb-20"
+        style={{
+          background: backgroundValue, 
+          color: textColorValue, 
+          padding: paddingValue, 
+          borderRadius: borderRadiusValue, 
+          border: borderThicknessValue + "px solid " + textColorValue, 
+          fontWeight: 600, letterSpacing: "2px"}}>
+          Some Cool Element
+        </div>
 
-      <ColorInput value={backgroundValue} onChange={setBackgroundValue} placeholder="Pick color" label="Background" />
-      <ColorInput className='mb-20' value={textColorValue} onChange={setTextColorValue} placeholder="Pick color" label="Text Color" />
+        <ColorInput value={backgroundValue} onBlur={setBackgroundValue} onChange={setBackgroundValue} placeholder="Pick color" label="Background" />
+        <ColorInput className='mb-20' onBlur={setTextColorValue} value={textColorValue} onChange={setTextColorValue} placeholder="Pick color" label="Text Color" />
 
-      <label>Padding</label>
-      <Slider 
-      className='mb-20'
-      style={{width: "25%"}}
-      value={paddingValue} 
-      onChange={setPaddingValue} 
-      marks={[
-        { value: 0, label: '0 px' },
-        { value: 50, label: '50 px' },
-        { value: 100, label: '100 px' },
-      ]}
-      />
+        <label>Padding</label>
+        <Slider 
+        className='mb-20'
+        style={{width: "25%"}}
+        value={paddingValue} 
+        onChange={setPaddingValue}
+        marks={[
+          { value: 0, label: '0 px' },
+          { value: 50, label: '50 px' },
+          { value: 100, label: '100 px' },
+        ]}
+        />
 
-      <label>Radius</label>
-      <Slider 
-      className='mb-20'
-      style={{width: "25%"}}
-      value={borderRadiusValue} 
-      onChange={setBorderRadiusValue} 
-      marks={[
-        { value: 20, label: '20 px' },
-        { value: 50, label: '50 px' },
-        { value: 80, label: '80 px' },
-      ]}
-      />
+        <label>Radius</label>
+        <Slider 
+        className='mb-20'
+        style={{width: "25%"}}
+        value={borderRadiusValue} 
+        onChange={setBorderRadiusValue} 
+        marks={[
+          { value: 20, label: '20 px' },
+          { value: 50, label: '50 px' },
+          { value: 80, label: '80 px' },
+        ]}
+        />
 
-      <label>Border Thickness</label>
-      <Slider 
-      className='mb-20'
-      min={0}
-      max={20}
-      style={{width: "25%"}}
-      value={borderThicknessValue} 
-      onChange={setBorderThicknessValue} 
-      marks={[
-        { value: 0, label: '0 px' },
-        { value: 10, label: '10 px' },
-        { value: 20, label: '20 px' },
-      ]}
-      />
+        <label>Border Thickness</label>
+        <Slider 
+        className='mb-40'
+        min={0}
+        max={20}
+        style={{width: "25%"}}
+        value={borderThicknessValue} 
+        onChange={setBorderThicknessValue} 
+        marks={[
+          { value: 0, label: '0 px' },
+          { value: 10, label: '10 px' },
+          { value: 20, label: '20 px' },
+        ]}
+        />
 
-      <div>
-        {htmlData && htmlData.current.outerHTML.toString()}
-      </div>
-
+        <div>
+          {htmlData && htmlData.current.outerHTML.toString()}
+        </div>
       </main>
     </div>
   )

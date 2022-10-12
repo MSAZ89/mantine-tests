@@ -6,11 +6,21 @@ import MyCard from "./mycard"
 import MyStack from "./mystack"
 import Cardgrid from "./cardgrid"
 import styles from '../styles/Home.module.css'
+import Head from 'next/head'
+import MyStepper from "./mystepper"
 
 export default function TabContent() {
+
     return (
+      <>
+        <Head>
+          <title>Mantine Component Testing</title>
+          <meta name="description" content="Mantine Component Testing Michael Simon AZ" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
         <Tabs radius="xs" orientation="vertical" defaultValue="home" variant='outline'>
-        <div className='nav-buttons'>
+        <nav className='nav-buttons'>
           <Tabs.List>
             <Tabs.Tab value="home">Home</Tabs.Tab>
             <Tabs.Tab color="orange" value="accordion">Accordion</Tabs.Tab>
@@ -18,10 +28,11 @@ export default function TabContent() {
             <Tabs.Tab color="orange" value="card">Card</Tabs.Tab>
             <Tabs.Tab value="indicator">Indicator</Tabs.Tab>
             <Tabs.Tab color="orange" value="stack">Stack</Tabs.Tab>
+            <Tabs.Tab value="stepper">Stepper</Tabs.Tab>
           </Tabs.List>
-        </div>
+        </nav>
           
-          <nav className={styles.main} >
+          <div className={styles.main} >
             <Tabs.Panel value="home" pl="xs">
               <Text weight={500} size="xl"><a href='https://mantine.dev/pages/getting-started/' target={"_blank"}>Mantine Components</a> Testing. Navigation built with <a href='https://mantine.dev/core/tabs/' target={"_blank"}>Tabs</a></Text>
               <Text weight={300} size="md">Tabs switch between different views.</Text>
@@ -63,9 +74,17 @@ export default function TabContent() {
               <br/>
               <MyStack />
             </Tabs.Panel>
+
+            <Tabs.Panel value="stepper" pl="xs">
+              <Text weight={500} size="xl"><a href='https://mantine.dev/core/stepper/' target={"_blank"}>Stepper</a></Text>
+              <Text weight={300} size="md">Display content divided into a steps sequence.</Text>
+              <br/>
+              <MyStepper />
+            </Tabs.Panel>
   
-          </nav>
+          </div>
   
           </Tabs>
+      </>
     )
 }

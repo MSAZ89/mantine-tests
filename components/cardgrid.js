@@ -4,7 +4,7 @@ import MyCard from './mycard';
 export default function Cardgrid () {
     return(
         <SimpleGrid 
-        cols={3} 
+        cols={4} 
         spacing="xs"
         breakpoints={[
             { maxWidth: 980, cols: 3, spacing: 'md' },

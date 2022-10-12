@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<p>This project is just a boilerplate for mantine tests.</p>
+<p>This project is just a boilerplate for mantine tests. There are a few different branches. Test1 is technically the main branch i've been testing with. :D</p>
 
 ## Getting Started
 

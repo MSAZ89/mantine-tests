@@ -88,3 +88,6 @@ a {
 .mr-4 {
   margin-right: 4px;
 }
+.tab-paper-text {
+  background: rgba(0, 0, 0, 0.025);
+}

@@ -8,6 +8,7 @@ import Cardgrid from "./cardgrid"
 import styles from '../styles/Home.module.css'
 import Head from 'next/head'
 import MyStepper from "./mystepper"
+import MyCopyButton from "./mycopybutton"
 
 export default function TabContent() {
 
@@ -29,6 +30,7 @@ export default function TabContent() {
             <Tabs.Tab value="indicator">Indicator</Tabs.Tab>
             <Tabs.Tab color="orange" value="stack">Stack</Tabs.Tab>
             <Tabs.Tab value="stepper">Stepper</Tabs.Tab>
+            <Tabs.Tab value="copybutton">Copy Button</Tabs.Tab>
           </Tabs.List>
         </nav>
           
@@ -81,7 +83,17 @@ export default function TabContent() {
               <br/>
               <MyStepper />
             </Tabs.Panel>
-  
+            
+            <Tabs.Panel value="copybutton" pl="xs">
+              <Text weight={500} size="xl"><a href='https://mantine.dev/core/copy-button/' rel="noreferrer" target={"_blank"}>Copy Button</a></Text>
+              <Text weight={300} size="md">CopyButton is based on use-clipboard hook.</Text>
+              <br/>
+
+              <MyCopyButton value="http://localhost:3000/" />
+              <MyCopyButton value="hahahahahah" />
+              <MyCopyButton value="memes" />
+            
+            </Tabs.Panel>
           </div>
   
           </Tabs>
